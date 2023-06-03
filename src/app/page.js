@@ -1,6 +1,6 @@
 'use client'
-import React from 'react';
-import {useState, useEffect} from 'react';
+// import React from 'react';
+// import {useState, useEffect} from 'react';
 import Image from 'next/image'
 import Charts from './charts.jsx'
 import Insights from './insights.jsx'
@@ -9,7 +9,7 @@ import Reccommendations from './reccommendations.jsx'
 import { Inter } from 'next/font/google'
 import styles from './page.module.css'
 
-import { MyResponsiveLine } from '../components/LineChart'
+// import { MyResponsiveLine } from '../components/LineChart'
 import { Chart } from "../pages/chart"
 
 import React, { useState, useEffect } from "react";
