@@ -1,4 +1,6 @@
 import React from 'react';
+import styles from './page.module.css';
+import TimeBlock from './Timeblock';
 
 const Schedule = () => {
   const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -12,16 +14,27 @@ const Schedule = () => {
     return `${formattedHour}:${minute.toString().padStart(2, '0')} ${ampm}`;
   };
 
+  const handleGetDay = (columnIndex) => {
+    if (columnIndex >= 0 && columnIndex < daysOfWeek.length) {
+      return daysOfWeek[columnIndex];
+    }
+    return null; // Handle the case when columnIndex is out of range
+  };
+
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', columnGap: '20px' }}>
+    <div className={styles.schedule}>
       {daysOfWeek.map((day, dayIndex) => (
-        <div key={dayIndex}>
-          <h2>{day}</h2>
-          {timeSlots.map((_, slotIndex) => (
-            <div key={slotIndex}>
-              <span>{formatTime(slotIndex)}</span>
-            </div>
-          ))}
+        <div key={dayIndex} className={styles.scheduleBlockRow}>
+          <h2 className={styles.header}>{day}</h2>
+          <div className={styles.timeSlots}>
+            {timeSlots.map((_, slotIndex) => (
+              <TimeBlock
+                key={slotIndex}
+                time={formatTime(slotIndex)}
+                day={handleGetDay(dayIndex)}
+              />
+            ))}
+          </div>
         </div>
       ))}
     </div>
@@ -29,6 +42,14 @@ const Schedule = () => {
 };
 
 export default Schedule;
+
+
+
+
+
+
+
+
 
 
 
