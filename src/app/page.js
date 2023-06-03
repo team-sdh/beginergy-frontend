@@ -1,9 +1,15 @@
 'use client'
+import React from 'react';
+import {useState, useEffect} from 'react';
 import Image from 'next/image'
+import Charts from './charts.jsx'
+import Insights from './insights.jsx'
+import Reccommendations from './reccommendations.jsx'
+
 import { Inter } from 'next/font/google'
 import styles from './page.module.css'
-// import MyResponsiveLine from '@/components/LineChart';
-// import { MyResponsiveLine } from '../components/LineChart'
+
+import { MyResponsiveLine } from '../components/LineChart'
 import { Chart } from "../pages/chart"
 
 import React, { useState, useEffect } from "react";
@@ -11,60 +17,66 @@ import React, { useState, useEffect } from "react";
 
 const inter = Inter({ subsets: ['latin'] })
 
+
 export default function Home() {
 
-  // const [energyData, setEnergyData] = useState();
-
-  // useEffect(() => {
-  //   test();
-  // },[])
-
-  // useEffect(() => {
-  //   console.log("energy data check 🎈🎈🎈🎈🎈: ", energyData);
-  // },[energyData])
-
-  // const getData = () => {
-  //   const data = test();
-  //   setEnergyData(data.data);
-  // }
+  const [showCharts, setShowCharts] = useState(false);
+  const [showInsights, setShowInsights] = useState(false);
+  const [showReccommendations, setShowReccommendations] = useState(false);
 
   const theseStyles = {
     fontFamily: 'Gotham, Helvetica, sans-serif',
     boxSizing: 'border-box',
     fontSize: '80px' // Adjust the font size as desired
   };
+
+  const handleChartClick = () => {
+    setShowCharts(true);
+    setShowInsights(false);
+    setShowReccommendations(false);
+  };
+  const handleInsightsClick = () => {
+    setShowCharts(false);
+    setShowInsights(true);
+    setShowReccommendations(false);
+  };
+  const handleReccommendationsClick = () =>{
+    setShowCharts(false);
+    setShowInsights(false);
+    setShowReccommendations(true);
+  };
   return (
     <main className={styles.main}>
       <div className={styles.description}>
         <div>
-          <a
-            href="https://octopusenergy.co.jp/?utm_source=Google&utm_medium=search-brand&utm_campaign=brand+search&utm_content=%E3%82%AA%E3%82%AF%E3%83%88%E3%83%91%E3%82%B9%E3%82%A8%E3%83%8A%E3%82%B8%E3%83%BC&gclid=CjwKCAjwpuajBhBpEiwA_ZtfhRuJfyiAgJvBacFAd2FkrplMCHoLaIJsoK3lf9GnV753I69Fb0Hx3xoCfnkQAvD_BwE"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Powered By{' '}
-            <Image
-              src="/octopus.png"
-              alt="Octopus Logo"
-              className={styles.vercelLogo}
-              styles = {{ borderRadius: '40px' }}
-              width={100}
-              height={100}
-              priority
-            />
-            and 
-            <Image
-              src="/XpressAi.png"
-              alt="Express Ai Logo"
-              className={styles.vercelLogo}
-              styles = {{ borderRadius: '40px' }}
-              width={100}
-              height={100}
-              priority
-            />
-          </a>
+          <div className={styles.logoContainer}>
+            <a href="https://octopus.energy/" target="_blank" rel="noopener noreferrer">
+              Powered By{' '}
+              <Image
+                src="/octopus.png"
+                alt="Octopus Logo"
+                className={styles.vercelLogo}
+                style={{ borderRadius: '40px' }}
+                width={100}
+                height={100}
+                priority
+              />
+            </a>
+            <span className={styles.logoSeparator}>and</span>
+            <a href="https://www.xpress.ai/" target="_blank" rel="noopener noreferrer">
+              <Image
+                src="/XpressAi.png"
+                alt="Express Ai Logo"
+                className={styles.vercelLogo}
+                style={{ borderRadius: '40px' }}
+                width={100}
+                height={100}
+                priority
+              />
+            </a>
+          </div>
         </div>
-      </div>
+  </div>
 
       <div className={styles.center}>
         <h1
@@ -73,7 +85,7 @@ export default function Home() {
 
       <div className={styles.grid}>
         <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          onClick={handleChartClick}
           className={styles.card}
           target="_blank"
           rel="noopener noreferrer"
@@ -87,7 +99,7 @@ export default function Home() {
         </a>
 
         <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          onClick={handleInsightsClick}
           className={styles.card}
           target="_blank"
           rel="noopener noreferrer"
@@ -101,7 +113,7 @@ export default function Home() {
         </a>
 
         <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          onClick={handleReccommendationsClick}
           className={styles.card}
           target="_blank"
           rel="noopener noreferrer"
@@ -115,6 +127,17 @@ export default function Home() {
         <div>
           <Chart />
         </div>
+      </div>
+      <div className={styles.main}>
+        {showCharts &&
+        <Charts />
+        }
+        {showInsights &&
+        <Insights />
+        }
+        {showReccommendations &&
+        <Reccommendations />
+        }
       </div>
     </main>
   )
