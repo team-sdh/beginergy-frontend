@@ -270,3 +270,80 @@ export const mockLineData = [
     ]
   }
 ]
+
+export const mockDataSingular = [
+  {
+    "id": "japan",
+    "color": "hsl(344, 70%, 50%)",
+    "data": [
+      {
+        "x": "plane",
+        "y": 127
+      },
+      {
+        "x": "helicopter",
+        "y": 82
+      },
+      {
+        "x": "boat",
+        "y": 135
+      },
+      {
+        "x": "train",
+        "y": 227
+      },
+      {
+        "x": "subway",
+        "y": 172
+      },
+      {
+        "x": "bus",
+        "y": 208
+      },
+      {
+        "x": "car",
+        "y": 95
+      },
+      {
+        "x": "moto",
+        "y": 143
+      },
+      {
+        "x": "bicycle",
+        "y": 42
+      },
+      {
+        "x": "horse",
+        "y": 223
+      },
+      {
+        "x": "skateboard",
+        "y": 256
+      },
+      {
+        "x": "others",
+        "y": 295
+      },
+      {
+        "x": "others2",
+        "y": 234
+      },
+      {
+        "x": "others3",
+        "y": 543
+      },
+      {
+        "x": "others4",
+        "y": 412
+      },
+      {
+        "x": "others5",
+        "y": 126
+      },
+      {
+        "x": "others6",
+        "y": 321
+      },
+    ]
+  },
+]

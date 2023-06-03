@@ -2,6 +2,7 @@
 // yarn add @nivo/line
 import { ResponsiveLine } from '@nivo/line'
 import { mockLineData as data } from '../data/mockLineData'
+import { mockDataSingular as data2 } from '../data/mockLineData';
 
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and
@@ -10,14 +11,14 @@ import { mockLineData as data } from '../data/mockLineData'
 // you'll often use just a few of them.
 const MyResponsiveLine = () => (
     <ResponsiveLine
-        data={data}
+        data={data2}
         margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
         xScale={{ type: 'point' }}
         yScale={{
             type: 'linear',
             min: 'auto',
             max: 'auto',
-            stacked: true,
+            stacked: false,
             reverse: false
         }}
         yFormat=" >-.2f"
@@ -27,7 +28,7 @@ const MyResponsiveLine = () => (
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'transportation',
+            legend: 'Day To Day',
             legendOffset: 36,
             legendPosition: 'middle'
         }}
@@ -35,9 +36,9 @@ const MyResponsiveLine = () => (
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'count',
+            legend: 'Energy Usage',
             legendOffset: -40,
-            legendPosition: 'middle'
+            legendPosition: 'middle',
         }}
         pointSize={10}
         pointColor={{ theme: 'background' }}
@@ -45,6 +46,7 @@ const MyResponsiveLine = () => (
         pointBorderColor={{ from: 'serieColor' }}
         pointLabelYOffset={-12}
         useMesh={true}
+        // gridYValues={[150, 250, 350]}
         legends={[
             {
                 anchor: 'bottom-right',

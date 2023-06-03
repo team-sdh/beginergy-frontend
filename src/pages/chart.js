@@ -1,4 +1,5 @@
-import  { mockLineData as data } from "../data/mockLineData";
+// import  { mockLineData as data } from "../data/mockLineData";
+// import { mockDataSingular as data2 } from "../data/mockLineData";
 
 import dynamic from "next/dynamic";
 
@@ -10,7 +11,7 @@ const MyResponsiveLine = dynamic(()=> import ('../components/LineChart'), {ssr:f
 const Chart = () => {
   return (
     <div className={styles.test}>
-      <MyResponsiveLine data={data} />
+      <MyResponsiveLine />
     </div>
   );
 };
