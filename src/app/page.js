@@ -124,7 +124,7 @@ export default function Home() {
           <p className={inter.className}>
             Get personal recommendations powered by express.ai</p>
         </a>
-        <div>
+        <div className={styles.chartContainer}>
           <Chart />
         </div>
       </div>

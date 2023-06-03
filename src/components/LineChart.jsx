@@ -28,7 +28,8 @@ const MyResponsiveLine = () => (
             tickPadding: 5,
             tickRotation: 0,
             legendOffset: -20,
-            legend: 'Derp',
+            // legend: 'Derp',
+            legend: data[0].id,
             legendPosition: 'middle',
             format: () => " ",
         }}
@@ -37,7 +38,7 @@ const MyResponsiveLine = () => (
             tickSize: 0,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'Day To Day',
+            legend: 'Every Half Hour',
             legendOffset: 36,
             legendPosition: 'middle',
             format: () => " ",
