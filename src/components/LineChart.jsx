@@ -1,8 +1,9 @@
 // install (please try to align the version of installed @nivo packages)
 // yarn add @nivo/line
 import { ResponsiveLine } from '@nivo/line'
-import { mockLineData as data } from '../data/mockLineData'
+// import { mockLineData as data } from '../data/mockLineData'
 import { mockDataSingular as data2 } from '../data/mockLineData';
+import { data } from "../data/energyData"
 
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and
@@ -11,7 +12,7 @@ import { mockDataSingular as data2 } from '../data/mockLineData';
 // you'll often use just a few of them.
 const MyResponsiveLine = () => (
     <ResponsiveLine
-        data={data2}
+        data={data}
         margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
         xScale={{ type: 'point' }}
         yScale={{
@@ -22,15 +23,24 @@ const MyResponsiveLine = () => (
             reverse: false
         }}
         yFormat=" >-.2f"
-        axisTop={null}
+        axisTop={{
+            tickSize: 0,
+            tickPadding: 5,
+            tickRotation: 0,
+            legendOffset: -20,
+            legend: 'Derp',
+            legendPosition: 'middle',
+            format: () => " ",
+        }}
         axisRight={null}
         axisBottom={{
-            tickSize: 5,
+            tickSize: 0,
             tickPadding: 5,
             tickRotation: 0,
             legend: 'Day To Day',
             legendOffset: 36,
-            legendPosition: 'middle'
+            legendPosition: 'middle',
+            format: () => " ",
         }}
         axisLeft={{
             tickSize: 5,

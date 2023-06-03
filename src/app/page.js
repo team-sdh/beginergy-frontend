@@ -6,9 +6,27 @@ import styles from './page.module.css'
 // import { MyResponsiveLine } from '../components/LineChart'
 import { Chart } from "../pages/chart"
 
+import React, { useState, useEffect } from "react";
+// import { test } from "../data/energyData";
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  // const [energyData, setEnergyData] = useState();
+
+  // useEffect(() => {
+  //   test();
+  // },[])
+
+  // useEffect(() => {
+  //   console.log("energy data check 🎈🎈🎈🎈🎈: ", energyData);
+  // },[energyData])
+
+  // const getData = () => {
+  //   const data = test();
+  //   setEnergyData(data.data);
+  // }
 
   const theseStyles = {
     fontFamily: 'Gotham, Helvetica, sans-serif',
