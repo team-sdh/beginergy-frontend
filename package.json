@@ -9,9 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nivo/bar": "^0.83.0",
+    "@nivo/bump": "^0.83.0",
+    "@nivo/core": "^0.83.0",
+    "d3-color": "^3.1.0",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.4",
     "next": "^13.4.4",
+    "nivo": "^0.31.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   }

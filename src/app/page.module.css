@@ -7,6 +7,15 @@
   min-height: 100vh;
 }
 
+.logoContainer {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+
+.logoSeparator {
+  margin: 0 10px;
+}
 
 .h1 {
   font-family: Gotham, Helvetica, sans-serif;
