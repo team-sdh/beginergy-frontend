@@ -13,6 +13,7 @@
     "@nivo/bump": "^0.83.0",
     "@nivo/core": "^0.83.0",
     "d3-color": "^3.1.0",
+    "@nivo/line": "^0.83.0",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.4",
     "next": "^13.4.4",

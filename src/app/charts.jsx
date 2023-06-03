@@ -6,7 +6,6 @@ const Charts = () => {
   return (
     <div>
       <h1 className={inter.className}>This is the Charts Page</h1>
-      <MyResponsiveAreaBump />
     </div>
   )
 }
