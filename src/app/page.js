@@ -1,6 +1,10 @@
+'use client'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from './page.module.css'
+// import MyResponsiveLine from '@/components/LineChart';
+// import { MyResponsiveLine } from '../components/LineChart'
+import { Chart } from "../pages/chart"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -90,6 +94,9 @@ export default function Home() {
           <p className={inter.className}>
             Get personal recommendations powered by express.ai</p>
         </a>
+        <div>
+          <Chart />
+        </div>
       </div>
     </main>
   )
