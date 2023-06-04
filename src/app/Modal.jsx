@@ -11,6 +11,8 @@ const Modal = ({ onClose, title }) => {
     { id: 6, label: 'Electric Car', isOn: false },
   ]);
 
+  const [reminderSent, setReminderSent] = useState(false);
+
   const handleToggleSwitch = (itemId) => {
     setListItems((prevItems) => {
       const updatedItems = prevItems.map((item) => {
@@ -34,13 +36,23 @@ const Modal = ({ onClose, title }) => {
     onClose();
   };
 
+  const handleSubmit = () => {
+    setListItems((prevItems) =>
+      prevItems.map((item) => ({
+        ...item,
+        isOn: false,
+      }))
+    );
+    setReminderSent(true);
+  };
+
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modalContent}>
         <h2>{title}</h2>
         <ul className={styles.list}>
           {listItems.map((item) => (
-            <li key={item.id}>
+            <li key={item.id} className={styles.listItem}>
               <span>{item.label}</span>
               <label className={styles.switch}>
                 <input
@@ -53,7 +65,14 @@ const Modal = ({ onClose, title }) => {
             </li>
           ))}
         </ul>
-        <button onClick={handleClose}>Close</button>
+        <div className={styles.buttons}>
+          {!reminderSent ? (
+            <button onClick={handleSubmit}>Send Reminder</button>
+          ) : (
+            <p>Reminder sent to Calendar!</p>
+          )}
+          <button onClick={handleClose}>Close</button>
+        </div>
       </div>
     </div>
   );

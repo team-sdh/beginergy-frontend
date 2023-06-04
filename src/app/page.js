@@ -16,12 +16,12 @@ export default function Home() {
     const [showInsights, setShowInsights] = useState(false);
     const [showReccommendations, setShowReccommendations] = useState(false);
 
-    useEffect(() => {
-        fetch(url + "4")
-            .then(response => response.json())
-            // 4. Setting *dogImage* to the image url that we received from the response above
-            .then(data => console.log(data));
-    }, []);
+    // useEffect(() => {
+    //     fetch(url + "4")
+    //         .then(response => response.json())
+    //         // 4. Setting *dogImage* to the image url that we received from the response above
+    //         .then(data => console.log(data));
+    // }, []);
 
     const theseStyles = {
         fontFamily: "Gotham, Helvetica, sans-serif",
