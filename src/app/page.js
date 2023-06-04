@@ -8,6 +8,8 @@ import Charts from "./charts.jsx";
 import Insights from "./insights.jsx";
 import Reccommendations from "./reccommendations.jsx";
 
+import { Chart } from "./pages/chart";
+
 const inter = Inter({ subsets: ["latin"] });
 const url = "http://localhost:8080/predict/";
 
