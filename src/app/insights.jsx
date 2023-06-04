@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './page.module.css';
 import TimeBlock from './Timeblock';
+import data from '../data/predictedData1.js';
 
 const Schedule = () => {
   const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -18,7 +19,17 @@ const Schedule = () => {
     if (columnIndex >= 0 && columnIndex < daysOfWeek.length) {
       return daysOfWeek[columnIndex];
     }
-    return null; // Handle the case when columnIndex is out of range
+    return null;
+  };
+
+  const getRating = (dayIndex, slotIndex) => {
+    if (dayIndex >= 0 && dayIndex < data.length) {
+      const dayData = data[dayIndex];
+      if (slotIndex >= 0 && slotIndex < dayData.length) {
+        return dayData[slotIndex].rating;
+      }
+    }
+    return null;
   };
 
   return (
@@ -27,13 +38,17 @@ const Schedule = () => {
         <div key={dayIndex} className={styles.scheduleBlockRow}>
           <h2 className={styles.header}>{day}</h2>
           <div className={styles.timeSlots}>
-            {timeSlots.map((_, slotIndex) => (
-              <TimeBlock
-                key={slotIndex}
-                time={formatTime(slotIndex)}
-                day={handleGetDay(dayIndex)}
-              />
-            ))}
+            {timeSlots.map((_, slotIndex) => {
+              const rating = getRating(dayIndex, slotIndex);
+              return (
+                <TimeBlock
+                  key={slotIndex}
+                  time={formatTime(slotIndex)}
+                  day={handleGetDay(dayIndex)}
+                  rating={rating}
+                />
+              );
+            })}
           </div>
         </div>
       ))}
@@ -42,6 +57,9 @@ const Schedule = () => {
 };
 
 export default Schedule;
+
+
+
 
 
 

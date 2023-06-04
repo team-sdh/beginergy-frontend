@@ -40,6 +40,13 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.scheduleBlockRow {
+  /* Existing styles */
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Handle overflow */
+  text-overflow: ellipsis; /* Handle overflow */
+}
+
 .test {
   /* display: flex; */
   /* align-items: center; */

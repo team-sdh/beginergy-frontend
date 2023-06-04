@@ -12,6 +12,7 @@ const Modal = ({ onClose, title }) => {
   ]);
 
   const [reminderSent, setReminderSent] = useState(false);
+  const [showSendReminderButton, setShowSendReminderButton] = useState(true);
 
   const handleToggleSwitch = (itemId) => {
     setListItems((prevItems) => {
@@ -37,13 +38,14 @@ const Modal = ({ onClose, title }) => {
   };
 
   const handleSubmit = () => {
+    setReminderSent(true);
+    setShowSendReminderButton(false);
     setListItems((prevItems) =>
       prevItems.map((item) => ({
         ...item,
         isOn: false,
       }))
     );
-    setReminderSent(true);
   };
 
   return (
@@ -66,10 +68,10 @@ const Modal = ({ onClose, title }) => {
           ))}
         </ul>
         <div className={styles.buttons}>
-          {!reminderSent ? (
+          {showSendReminderButton && !reminderSent ? (
             <button onClick={handleSubmit}>Send Reminder</button>
           ) : (
-            <p>Reminder sent to Calendar!</p>
+            reminderSent && <p>Reminder sent to Calendar!</p>
           )}
           <button onClick={handleClose}>Close</button>
         </div>
@@ -79,3 +81,5 @@ const Modal = ({ onClose, title }) => {
 };
 
 export default Modal;
+
+
