@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 import { Bar, Line, Scatter, Bubble } from 'react-chartjs-2';
 
+import { Chart } from "./pages/chart";
+
 // const data = {
 //   labels:["January", "February", "March", "April", "May", "June", "July"],
 //   datasets: [
@@ -46,6 +48,9 @@ const Charts = () => {
     <div>
       <h1 className={inter.className}>This is the Charts Page</h1>
       {/* <Line data={data} width={100} height={40} options={options}> </Line> */}
+      <div className={styles.chartContainer}>
+        <Chart />
+      </div>
     </div>
   )
 }
